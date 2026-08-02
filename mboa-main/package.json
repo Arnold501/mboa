@@ -1,0 +1,41 @@
+{
+	"name": "mboa",
+	"private": true,
+	"version": "0.0.1",
+	"type": "module",
+	"scripts": {
+		"dev": "vite dev",
+		"build": "vite build",
+		"preview": "vite preview",
+		"login": "sanity login",
+		"sanity-init": "sanity init --env .env.production",
+		"prepare": "svelte-kit sync || echo ''",
+		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
+		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch"
+	},
+	"devDependencies": {
+		"@portabletext/svelte": "^3.0.1",
+		"@sveltejs/adapter-auto": "^7.0.1",
+		"@sveltejs/kit": "^2.57.0",
+		"@sveltejs/vite-plugin-svelte": "^7.0.0",
+		"@tailwindcss/vite": "^4.2.2",
+		"@types/nodemailer": "^8.0.1",
+		"svelte": "^5.55.2",
+		"svelte-check": "^4.4.6",
+		"tailwindcss": "^4.2.2",
+		"typescript": "^6.0.2",
+		"vite": "^8.0.7"
+	},
+	"dependencies": {
+		"@sanity/icons": "^5.0.0",
+		"@sanity/image-url": "^2.1.1",
+		"@sanity/sveltekit": "^2.0.0",
+		"@sanity/ui": "^3.3.1",
+		"@sanity/vision": "^6.3.0",
+		"nodemailer": "^9.0.3",
+		"react": "^19.2.7",
+		"react-dom": "^19.2.7",
+		"sanity": "^6.3.0",
+		"styled-components": "^6.4.3"
+	}
+}

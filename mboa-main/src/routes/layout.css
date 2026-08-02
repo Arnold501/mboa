@@ -1,0 +1,398 @@
+/* Google Fonts MUST come FIRST */
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:ital,wght@0,400;0,600;0,700;0,800;0,900;1,700&family=Poppins:wght@300;400;500;600;700&display=swap");
+
+/* Then import Tailwind */
+@import "tailwindcss";
+
+/* Then define your theme AFTER both imports */
+@theme {
+  --font-poppins: "Poppins", sans-serif;
+  --font-bebas: "Bebas Neue", sans-serif;
+  --font-montserrat: "Montserrat", sans-serif;
+
+    /* Add color definitions here */
+  --color-gold: #C8A96A;
+  --color-gold-light: #D4BC89;
+  --color-gold-dark: #A88A4A;
+  --color-light-gray: #333333;
+  --color-dark-gray: #111111;
+}
+
+:root {
+  --gold: #C8A96A;
+  --gold-light: #D4BC89;
+  --gold-dark: #A88A4A;
+  --gold-muted: rgba(200, 169, 106, 0.12);
+  --black: #000000;
+  --off-black: #0A0A0A;
+  --dark-gray: #111111;
+  --white: #FFFFFF;
+
+  --light-gray: #333333;
+  --ease-cinematic: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --ease-power: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-expo: cubic-bezier(0.87, 0, 0.13, 1);
+}
+
+/* ─── Base Reset & Typography ─────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background-color: var(--black);
+  color: var(--white);
+  font-family: 'Poppins', sans-serif;
+  overflow-x: hidden;
+  cursor: none;
+}
+
+/* ─── Custom Cursor ───────────────────────────────────────── */
+.cursor-dot {
+  width: 6px;
+  height: 6px;
+  background: var(--gold);
+  border-radius: 50%;
+  position: fixed;
+  top: 0; left: 0;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  transition: transform 0.05s;
+}
+
+.cursor-ring {
+  width: 36px;
+  height: 36px;
+  border: 1.5px solid rgba(200, 169, 106, 0.6);
+  border-radius: 50%;
+  position: fixed;
+  top: 0; left: 0;
+  pointer-events: none;
+  z-index: 9998;
+  transform: translate(-50%, -50%);
+  transition: all 0.15s var(--ease-cinematic);
+}
+
+body:hover .cursor-ring {
+  opacity: 1;
+}
+
+/* ─── Scrollbar ────────────────────────────────────────────── */
+::-webkit-scrollbar { width: 3px; }
+::-webkit-scrollbar-track { background: var(--black); }
+::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 2px; }
+
+/* ─── Selection ───────────────────────────────────────────── */
+::selection {
+  background: var(--gold);
+  color: var(--black);
+}
+
+/* ─── Component Layer ──────────────────────────────────────── */
+@layer components {
+  /* Gold line accent */
+  .gold-line {
+    @apply block h-px bg-(--gold) w-12 mb-4;
+  }
+
+  .gold-line-full {
+    @apply block h-px w-full;
+    background: linear-gradient(90deg, var(--gold) 0%, transparent 100%);
+  }
+
+  /* Section title pattern */
+  .section-eyebrow {
+    @apply font-poppins text-xs font-semibold tracking-widest text-(--gold) uppercase mb-3;
+  }
+
+  .section-title {
+    @apply font-bebas text-5xl md:text-7xl leading-none text-white;
+  }
+
+  .section-title-sm {
+    @apply font-bebas text-4xl md:text-5xl leading-none text-white;
+  }
+
+  /* Buttons */
+  .btn-primary {
+    @apply inline-flex items-center gap-3 px-8 py-4 bg-(--gold) text-black font-montserrat font-bold text-sm tracking-wider uppercase
+           transition-all duration-300 relative overflow-hidden;
+  }
+  .btn-primary::before {
+    content: '';
+    @apply absolute inset-0 bg-white opacity-0 transition-opacity duration-200;
+  }
+  .btn-primary:hover::before {
+    @apply opacity-10;
+  }
+  .btn-primary:hover {
+    @apply translate-y-px shadow-lg;
+    box-shadow: 0 8px 32px rgba(200, 169, 106, 0.35);
+  }
+
+  .btn-outline {
+    @apply inline-flex items-center gap-3 px-8 py-4 border border-(--gold) text-(--gold) font-montserrat font-bold text-sm tracking-wider uppercase
+           transition-all duration-300 relative overflow-hidden;
+  }
+  .btn-outline:hover {
+    @apply bg-(--gold) text-black;
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center gap-3 px-6 py-3 text-white font-poppins font-medium text-sm tracking-wide uppercase
+           border-b border-transparent transition-all duration-200;
+  }
+  .btn-ghost:hover {
+    @apply border-(--gold) text-(--gold);
+  }
+
+  /* Cards */
+  .card-dark {
+    @apply bg-(--dark-gray) border border-light-gray/30 overflow-hidden transition-all duration-500;
+  }
+  .card-dark:hover {
+    @apply border-(--gold)/40;
+    transform: translateY(-4px);
+    box-shadow: 0 20px 60px rgba(0,0,0,0.6), 0 0 0 1px rgba(200,169,106,0.1);
+  }
+
+  /* Noise overlay texture */
+  .noise-overlay::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none;
+    opacity: 0.4;
+    mix-blend-mode: overlay;
+  }
+
+  /* Gold gradient text */
+  .text-gold-gradient {
+    background: linear-gradient(135deg, var(--gold-light) 0%, var(--gold) 50%, var(--gold-dark) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Image overlay */
+  .img-overlay {
+    @apply absolute inset-0;
+    background: linear-gradient(to top, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.4) 50%, transparent 100%);
+  }
+
+  /* Divider */
+  .divider-gold {
+    @apply h-px w-full my-16 md:my-24;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  }
+
+  /* Tag pill */
+  .tag {
+    @apply inline-block px-3 py-1 text-xs font-poppins font-semibold tracking-widest uppercase;
+    background: var(--gold-muted);
+    color: var(--gold);
+    border: 1px solid rgba(200, 169, 106, 0.2);
+  }
+
+  /* Partner logo — no dedicated tile class needed. The Home Partners
+     strip is a single small marquee row (sizing/spacing set directly in
+     the markup, see the Home page's Partners section); the color reveal
+     on hover is handled per-image via Tailwind utilities in
+     PartnerLogoTile.svelte. */
+
+  /* Stats */
+  .stat-value {
+    @apply font-bebas text-5xl md:text-6xl text-(--gold) leading-none;
+  }
+  .stat-label {
+    @apply font-poppins text-xs tracking-widest text-white/50 uppercase mt-1;
+  }
+}
+
+/* ─── Animations & Reveal ─────────────────────────────────── */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s var(--ease-cinematic), transform 0.8s var(--ease-cinematic);
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-left {
+  opacity: 0;
+  transform: translateX(-30px);
+  transition: opacity 0.8s var(--ease-cinematic), transform 0.8s var(--ease-cinematic);
+}
+.reveal-left.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Stagger delays */
+.delay-1 { transition-delay: 0.1s; }
+.delay-2 { transition-delay: 0.2s; }
+.delay-3 { transition-delay: 0.3s; }
+.delay-4 { transition-delay: 0.4s; }
+.delay-5 { transition-delay: 0.5s; }
+.delay-6 { transition-delay: 0.6s; }
+
+/* ─── Page Transitions ───────────────────────────────────── */
+.page-enter {
+  opacity: 0;
+  transform: translateY(20px);
+}
+.page-enter-active {
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+/* Ticker/marquee mechanism now lives at the bottom of this file as the
+   shared .marquee-container/.marquee-track classes — see there. The
+   .ticker-container/.ticker-track rules that used to be here referenced
+   an animation named "ticker" that was never actually defined anywhere
+   in this file, so the Footer's brand-statement strip was silently
+   static this whole time — never truly scrolling, just clipped by
+   overflow:hidden at whatever width the viewport happened to be. */
+
+/* ─── Parallax wrapper ───────────────────────────────────── */
+.parallax-section {
+  will-change: transform;
+}
+
+/* ─── Hero clip ──────────────────────────────────────────── */
+.hero-clip {
+  clip-path: polygon(0 0, 100% 0, 100% 92%, 0 100%);
+}
+
+/* ─── Gold shimmer ───────────────────────────────────────── */
+@keyframes shimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+.shimmer-text {
+  background: linear-gradient(90deg, var(--gold) 0%, var(--gold-light) 40%, var(--gold) 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmer 4s linear infinite;
+}
+
+/* ─── Video overlay ──────────────────────────────────────── */
+.video-overlay {
+  background: linear-gradient(
+    135deg,
+    rgba(0,0,0,0.85) 0%,
+    rgba(0,0,0,0.5) 50%,
+    rgba(0,0,0,0.75) 100%
+  );
+}
+
+/* ─── Nav link active ────────────────────────────────────── */
+.nav-link {
+  @apply relative font-poppins text-sm font-medium tracking-wider text-white/80 uppercase
+         transition-colors duration-200 hover:text-(--gold);
+}
+.nav-link::after {
+  content: '';
+  @apply absolute bottom-0 left-0 h-px w-0 bg-(--gold) transition-all duration-300;
+}
+.nav-link:hover::after,
+.nav-link.active::after {
+  @apply w-full;
+}
+.nav-link.active {
+  @apply text-(--gold);
+}
+
+/* ─── Form inputs ────────────────────────────────────────── */
+.input-dark {
+  @apply w-full bg-(--dark-gray) border border-light-gray/50 text-white font-poppins text-sm px-5 py-4
+         placeholder-white/25 transition-all duration-200 outline-none;
+}
+.input-dark:focus {
+  @apply border-(--gold)/60;
+  box-shadow: 0 0 0 3px rgba(200, 169, 106, 0.08);
+}
+
+/* ─── Athlete card hover effect ──────────────────────────── */
+.athlete-card .athlete-overlay {
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+.athlete-card:hover .athlete-overlay {
+  opacity: 1;
+}
+.athlete-card .athlete-img {
+  transition: transform 0.6s var(--ease-cinematic);
+}
+.athlete-card:hover .athlete-img {
+  transform: scale(1.07);
+}
+
+/* ─── Media card ─────────────────────────────────────────── */
+.media-card .play-btn {
+  opacity: 0;
+  transform: scale(0.8);
+  transition: all 0.3s var(--ease-cinematic);
+}
+.media-card:hover .play-btn {
+  opacity: 1;
+  transform: scale(1);
+}
+.media-card .media-img {
+  transition: transform 0.6s var(--ease-cinematic);
+}
+.media-card:hover .media-img {
+  transform: scale(1.05);
+}
+
+/* ─── Marquee (shared infinite horizontal scroll mechanism) ─────────
+   Used by both the Footer's brand-statement ticker and the Home page's
+   Partners marquee. Content is duplicated by the caller so the rendered
+   track is exactly 2x the "one lap" content; translateX(-50%) then
+   always shifts by exactly one lap's width, however long that lap is —
+   which is what makes the loop seamless regardless of how much content
+   there is. Callers set their own animation-duration inline (scroll
+   speed should scale with how much content exists, so a short phrase
+   and a long partner roster both feel like the same *speed*, not the
+   same *duration*). ──────────────────────────────────────────────── */
+.marquee-container {
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+  mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+}
+
+.marquee-track {
+  display: flex;
+  align-items: center;
+  width: max-content;
+  animation-name: marquee-scroll;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+.marquee-track:hover {
+  animation-play-state: paused;
+}
+
+@keyframes marquee-scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track {
+    animation: none;
+  }
+}
