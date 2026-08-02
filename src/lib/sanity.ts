@@ -1,10 +1,12 @@
 import { createClient } from '@sanity/sveltekit';
-import {
+import {env} from '$env/dynamic/public';
+
+let {
   PUBLIC_SANITY_PROJECT_ID,
   PUBLIC_SANITY_DATASET,
   PUBLIC_SANITY_API_VERSION,
   PUBLIC_SANITY_STUDIO_URL
-} from '$env/static/public';
+} = env;
 
 export const apiVersion = PUBLIC_SANITY_API_VERSION || '2025-10-21';
 

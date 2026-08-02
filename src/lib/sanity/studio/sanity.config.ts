@@ -2,12 +2,17 @@ import { defineConfig } from 'sanity';
 import { structureTool } from 'sanity/structure';
 import { presentationTool } from 'sanity/presentation';
 import { visionTool } from '@sanity/vision';
-import {
-  PUBLIC_SANITY_PROJECT_ID as projectId,
-  PUBLIC_SANITY_DATASET as dataset
-} from '$env/static/public';
+import {env} from '$env/dynamic/public';
 import { schemaTypes } from './schemaTypes';
 import { structure } from './structure/deskStructure';
+
+let {
+  PUBLIC_SANITY_PROJECT_ID,
+  PUBLIC_SANITY_DATASET,
+} = env;
+
+let projectId = PUBLIC_SANITY_PROJECT_ID;
+let dataset = PUBLIC_SANITY_DATASET;
 
 export default defineConfig({
   name: 'mboa-sports',
