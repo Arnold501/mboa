@@ -2,7 +2,9 @@ import { handlePreviewMode, handleLiveLoader } from '@sanity/sveltekit';
 import { redirect } from '@sveltejs/kit';
 import { sequence } from '@sveltejs/kit/hooks';
 import { serverClient } from '$lib/sanity.server';
-import { SANITY_VIEWER_TOKEN } from '$env/static/private';
+import { env } from '$env/dynamic/private';
+
+let { SANITY_VIEWER_TOKEN } = env;
 
 /**
  * handlePreviewMode  — powers /preview/enable + /preview/disable, used by the

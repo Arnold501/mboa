@@ -1,5 +1,7 @@
-import { SANITY_VIEWER_TOKEN } from '$env/static/private';
+import { env } from '$env/dynamic/private';
 import { client } from '$lib/sanity';
+
+let { SANITY_VIEWER_TOKEN } = env;
 
 /**
  * Server-only client authenticated with a Viewer token.
