@@ -16,7 +16,7 @@ COPY vite.config.ts ./
 COPY tsconfig.json ./
 COPY src ./src
 COPY static ./static
-RUN bun run build
+RUN node ./node_modules/.bin/vite build
 
 # Stage 3: runtime image
 FROM oven/bun:1.3-alpine AS runner
