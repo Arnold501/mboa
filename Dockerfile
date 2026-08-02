@@ -8,7 +8,14 @@ RUN bun install
 FROM oven/bun:1.3-alpine AS builder
 WORKDIR /app
 COPY --from=deps /app/node_modules ./node_modules
-COPY . .
+COPY package.json ./
+COPY bun.lock ./
+COPY .npmrc ./
+COPY svelte.config.js ./
+COPY vite.config.ts ./
+COPY tsconfig.json ./
+COPY src ./src
+COPY static ./static
 RUN bun run build
 
 # Stage 3: runtime image
