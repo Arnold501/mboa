@@ -1,17 +1,15 @@
 import { json } from '@sveltejs/kit';
 import type { RequestHandler } from './$types';
 import nodemailer from 'nodemailer';
-import { env } from "$env/dynamic/private";
-
-const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-let  {
+import {
   MAIL_HOST,
   MAIL_PORT,
   MAIL_USER,
   MAIL_APP_PASSWORD,
   CONTACT_TO_EMAIL
-} = env;
+} from '$env/static/private';
+
+const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 const MAX_LENGTHS = {
   name: 120,

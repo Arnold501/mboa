@@ -1,15 +1,41 @@
 import { json } from '@sveltejs/kit';
 import type { RequestHandler } from './$types';
-import {env} from '$env/dynamic/private';
-
-let {
+import {
   ZOHO_ACCOUNTS_DOMAIN,
   ZOHO_CAMPAIGNS_DOMAIN,
   ZOHO_CLIENT_ID,
   ZOHO_CLIENT_SECRET,
   ZOHO_REFRESH_TOKEN,
   ZOHO_LIST_KEY
-} = env;
+} from '$env/static/private';
+
+/**
+ * Newsletter capture — Zoho Campaigns.
+ *
+ * Unlike a simple API-key provider, Zoho Campaigns authenticates with
+ * OAuth 2.0: every request needs a short-lived access token (~1 hour),
+ * minted from a long-lived refresh token generated once during setup —
+ * see .env.example for the exact one-time steps (Self Client → grant
+ * code → refresh token).
+ *
+ * This module caches that access token in memory and only refreshes it
+ * once it's actually close to expiring, so a normal signup makes exactly
+ * one Zoho API call (listsubscribe), not two. On serverless platforms
+ * this cache survives "warm" invocations of the same function instance;
+ * a cold start just costs one extra token refresh, never a broken signup.
+ *
+ * The request/response contract with NewsletterSignup.svelte — POST
+ * { email, website }, respond { success: true } or { error: string } —
+ * is unchanged from the previous provider, so swapping providers again
+ * later only means rewriting this file.
+ *
+ * Note: by default, Zoho Campaigns sends new subscribers a confirmation
+ * email and only marks them "Active" once they click it (double opt-in).
+ * That's industry-standard and usually desirable, but if the client
+ * wants an immediate single opt-in instead, that's a toggle on the
+ * mailing list's signup-form settings inside Zoho Campaigns itself, not
+ * something this endpoint controls.
+ */
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const REQUEST_TIMEOUT_MS = 8000;
