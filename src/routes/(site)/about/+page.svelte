@@ -7,6 +7,24 @@
   const { data }: PageProps = $props();
   const partners = $derived(data.partners ?? []);
   const becomePartnerUrl = $derived(data.siteSettings?.becomePartnerUrl ?? null);
+  const notableAthletes = [
+    'Ateba Gautier',
+    'Djantou Nana Maxwell',
+    'Fondjo Stéphane',
+    'Tamba Merlin',
+    'Ayissi Bessala',
+    'Jean Junior Messi Elime',
+    'Marie Onguiene Tsimi'
+  ];
+
+  const BELT_MARQUEE_TARGET_LAP_TILES = 14;
+  const BELT_SECONDS_PER_TILE = 2.2;
+  const BELT_MIN_DURATION = 12;
+
+  const beltRepeat = Math.max(1, Math.ceil(BELT_MARQUEE_TARGET_LAP_TILES / notableAthletes.length));
+  const beltLap = Array.from({ length: beltRepeat }).flatMap(() => notableAthletes);
+  const beltItems = [...beltLap, ...beltLap];
+  const beltDuration = Math.max(BELT_MIN_DURATION, beltLap.length * BELT_SECONDS_PER_TILE);
 </script>
 
 <svelte:head>
@@ -49,6 +67,47 @@
         <p class="font-poppins text-white/70 leading-relaxed text-lg">
           More than a sports organization, MBOA SPORTS is a movement dedicated to transforming potential into excellence while inspiring the next generation of African champions.
         </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── CEO Message ── -->
+<section class="py-24 md:py-32 bg-(--dark-gray)">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10">
+    <div class="grid gap-12 lg:grid-cols-[360px_minmax(0,1fr)] items-center">
+      <div class="rounded-[2rem] overflow-hidden border border-white/10 shadow-2xl" use:reveal>
+        <img src="/claude-photo.jpeg" alt="CEO of MBOA Sports" class="w-full h-full object-cover min-h-[420px]" />
+      </div>
+
+      <div use:reveal={{ delay: 100 }}>
+        <!-- <span class="section-eyebrow">Meet out founder</span> -->
+        <h2 class="section-title-sm mb-6">Meet our founder</h2>
+        <p class="font-poppins text-white/70 leading-relaxed text-lg mb-4">
+          Kouam Claude is the visionary founder of MBOA SPORTS and MBOA Sport Association, committed to discovering talent, developing champions, and creating opportunities for athletes across Africa. A high-performance boxing coach and sports promoter visionary in combat sports, he is best known for developing elite striking skills and preparing champions for competition. His expertise in boxing is the foundation of his coaching philosophy, and his experience extends across other combat sports including MMA and Kickboxing.  His vision also supports the growth of talent in other sports, helping the next generation reach their full potential. 
+        </p>
+        <blockquote class="border-l-2 border-(--gold) pl-6 text-white/70 leading-relaxed text-lg mb-6">
+          "Every champion begins with an opportunity. Our mission is to discover talent, develop excellence, and inspire Africa through the power of sport."
+        </blockquote>
+        <div class="font-poppins text-white/60 text-sm mb-6">
+          <strong class="block mb-3">Notable athletes coached:</strong>
+          <div class="marquee-container">
+            <div class="marquee-track" style:animation-duration="{beltDuration}s">
+              {#each beltItems as name}
+                <div class="shrink-0 mx-4 inline-flex items-center justify-center px-6 py-3 rounded-full bg-(--gold) text-black font-semibold">{name}</div>
+              {/each}
+            </div>
+          </div>
+        </div>
+        <div class="flex items-center gap-4">
+          <!-- <div class="w-20 h-20 rounded-full overflow-hidden border border-(--gold) bg-black">
+            <img src="/about-page.jpg" alt="Founder portrait" class="w-full h-full object-cover" />
+          </div> -->
+          <div>
+            <p class="font-bebas text-2xl text-white">Kouam Claude</p>
+            <p class="font-poppins text-xs uppercase tracking-[0.35em] text-white/50">Founder & Promoter — High Performance Coach</p>
+          </div>
+        </div>
       </div>
     </div>
   </div>
