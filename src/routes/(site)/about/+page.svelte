@@ -75,18 +75,18 @@
 <!-- ── CEO Message ── -->
 <section class="py-24 md:py-32 bg-(--dark-gray)">
   <div class="max-w-7xl mx-auto px-6 lg:px-10">
-    <div class="grid gap-12 lg:grid-cols-[360px_minmax(0,1fr)] items-center">
-      <div class="rounded-[2rem] overflow-hidden border border-white/10 shadow-2xl" use:reveal>
-        <img src="/claude-photo.jpeg" alt="CEO of MBOA Sports" class="w-full h-full object-cover min-h-[420px]" />
+    <div class="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+      <div class="rounded-[2rem] overflow-hidden border border-white/10 shadow-2xl sm:h-120 md:h-120 lg:h-170 w-[90vw] lg:max-w-[600px]" use:reveal>
+        <img src="/claude-photo.jpeg" alt="CEO of MBOA Sports" class="md:h-305 w-full h-full object-cover min-h-[420px]" />
       </div>
 
-      <div use:reveal={{ delay: 100 }}>
+      <div class="flex flex-col gap-5 max-w-[90vw]" use:reveal={{ delay: 100 }}>
         <!-- <span class="section-eyebrow">Meet out founder</span> -->
-        <h2 class="section-title-sm mb-6">Meet our founder</h2>
-        <p class="font-poppins text-white/70 leading-relaxed text-lg mb-4">
-          Kouam Claude is the visionary founder of MBOA SPORTS and MBOA Sport Association, committed to discovering talent, developing champions, and creating opportunities for athletes across Africa. A high-performance boxing coach and sports promoter visionary in combat sports, he is best known for developing elite striking skills and preparing champions for competition. His expertise in boxing is the foundation of his coaching philosophy, and his experience extends across other combat sports including MMA and Kickboxing.  His vision also supports the growth of talent in other sports, helping the next generation reach their full potential. 
+        <h2 class="section-title-sm text-3xl sm:text-4xl md:text-5xl mb-5">Meet our founder</h2>
+        <p class="font-poppins text-white/70 leading-relaxed text-sm md:text-base mb-4">
+          Kouam Claude is the visionary founder of MBOA SPORTS and MBOA Sport Association, committed to discovering talent, developing champions, and creating opportunities for athletes across Africa. A high-performance boxing coach and sports promoter visionary in combat sports, he is best known for developing elite striking skills and preparing champions for competition. His expertise in boxing is the foundation of his coaching philosophy, and his experience extends across other combat sports including MMA and Kickboxing. His vision also supports the growth of talent in other sports, helping the next generation reach their full potential.
         </p>
-        <blockquote class="border-l-2 border-(--gold) pl-6 text-white/70 leading-relaxed text-lg mb-6">
+        <blockquote class="border-l-2 border-(--gold) pl-6 text-white/70 leading-relaxed text-sm md:text-base mb-6">
           "Every champion begins with an opportunity. Our mission is to discover talent, develop excellence, and inspire Africa through the power of sport."
         </blockquote>
         <div class="font-poppins text-white/60 text-sm mb-6">
@@ -94,15 +94,12 @@
           <div class="marquee-container">
             <div class="marquee-track" style:animation-duration="{beltDuration}s">
               {#each beltItems as name}
-                <div class="shrink-0 mx-4 inline-flex items-center justify-center px-6 py-3 rounded-full bg-(--gold) text-black font-semibold">{name}</div>
+                <div class="shrink-0 mx-3 inline-flex items-center justify-center px-3 py-2 rounded-full bg-(--gold) text-black font-semibold text-xs md:text-sm">{name}</div>
               {/each}
             </div>
           </div>
         </div>
-        <div class="flex items-center gap-4">
-          <!-- <div class="w-20 h-20 rounded-full overflow-hidden border border-(--gold) bg-black">
-            <img src="/about-page.jpg" alt="Founder portrait" class="w-full h-full object-cover" />
-          </div> -->
+        <div class="flex flex-col sm:flex-row sm:items-center gap-4">
           <div>
             <p class="font-bebas text-2xl text-white">Kouam Claude</p>
             <p class="font-poppins text-xs uppercase tracking-[0.35em] text-white/50">Founder & Promoter — High Performance Coach</p>
