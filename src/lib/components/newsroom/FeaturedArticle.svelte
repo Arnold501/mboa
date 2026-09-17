@@ -8,7 +8,7 @@
     : null);
 </script>
 
-<a href="/newsroom/{post.slug}" class="group relative block overflow-hidden min-h-[60vh] items-end">
+<a href="/news/{post.slug}" class="group relative block overflow-hidden min-h-[60vh] items-end">
   {#if imgUrl}
     <img
       src={imgUrl}

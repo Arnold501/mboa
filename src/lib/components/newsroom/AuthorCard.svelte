@@ -10,7 +10,7 @@
   {/if}
   <div class="min-w-0">
     <p class="font-poppins text-[10px] text-(--gold)/70 tracking-widest uppercase mb-1">Written By</p>
-    <a href="/newsroom/author/{author.slug}" class="font-bebas text-2xl text-white leading-none mb-1 hover:text-(--gold) transition-colors inline-block">
+    <a href="/news/author/{author.slug}" class="font-bebas text-2xl text-white leading-none mb-1 hover:text-(--gold) transition-colors inline-block">
       {author.name}
     </a>
     {#if author.role}<p class="font-poppins text-xs text-white/40 mb-2">{author.role}</p>{/if}
