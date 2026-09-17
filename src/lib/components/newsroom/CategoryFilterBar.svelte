@@ -1,5 +1,5 @@
 <script lang="ts">
-  let { categories, active, basePath = '/newsroom' } = $props();
+  let { categories, active, basePath = '/news' } = $props();
 </script>
 
 <div class="flex items-center gap-3 overflow-x-auto pb-1">
