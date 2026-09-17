@@ -10,7 +10,7 @@
   let accent = $derived(getBrandColorHex(post.category?.accentColor));
 </script>
 
-<a href="/newsroom/{post.slug}" class="card-dark block group relative overflow-hidden">
+<a href="/news/{post.slug}" class="card-dark block group relative overflow-hidden">
   <div class="aspect-3/2 overflow-hidden relative">
     {#if imgUrl}
       <img
