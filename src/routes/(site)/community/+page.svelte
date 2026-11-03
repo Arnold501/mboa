@@ -121,7 +121,7 @@
 
 <!-- Shared per-program card — identical rendering for both Latest and Past
      so "the design and way of listing stays the same," just split across
-     two sections instead of one long list. -->
+     two sections instead of one long list.-->
 {#snippet programBlock(program: any, i: number)}
   {@const imgUrl = program.image?.image ? urlFor(program.image.image)?.width(800).height(600).fit('crop').url() : null}
   <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center" class:lg:flex-row-reverse={i % 2 !== 0}>

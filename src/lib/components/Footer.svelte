@@ -12,7 +12,7 @@
     { label: 'Store', href: '/store' },
     { label: 'Contact', href: '/contact' }
   ];
-  const contactAddress = ['UAE / CAMEROON'];
+  const contactAddress = ['UAE / CAMEROON / RWANDA'];
   const contactEmail = 'info@mboasports.com';
   const contactPhone = '+237 650 916 937';
 
@@ -47,7 +47,7 @@
   const tagline = $derived(settings.tagline || 'Building Champions. Empowering Talents');
   const footerDescription = $derived(
     settings.footerDescription ||
-      'Discovering raw talent. Developing elite athletes. Producing world champions. Based in UAE and CAMEROON — operating across Africa and beyond.'
+      'Discovering raw talent. Developing elite athletes. Producing world champions. Based in UAE, CAMEROON, and RWANDA — operating across Africa and beyond.'
   );
   const socialLinks = $derived(settings.socialLinks?.length ? settings.socialLinks : fallbackSocial);
 
