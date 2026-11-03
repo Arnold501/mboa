@@ -80,7 +80,7 @@
 </script>
 
 <svelte:head>
-  <title>{hero?.title || 'Contact'} MBOA Sports</title>
+  <title>{hero?.title || 'Contact'} | MBOA Sports</title>
   <meta name="description" content={hero?.subtitle || 'Get in touch with MBOA Sports. Athlete applications, partnership enquiries, media accreditation and more.'} />
 </svelte:head>
 

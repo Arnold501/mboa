@@ -52,11 +52,20 @@
   const marqueeDuration = $derived(
     Math.max(MARQUEE_MIN_DURATION, marqueeLap.length * MARQUEE_SECONDS_PER_TILE)
   );
+
+  const siteSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  name: 'MBOA Sports',
+  alternateName: ['MBOA', 'MBOA Sports Africa'],
+  url: 'https://www.mboasports.com/'
+};
 </script>
 
 <svelte:head>
   <title>MBOA Sports — Building Champions. Empowering Talents</title>
-  <meta name="description" content="High-Performance Multi-Sport Organization. Discovering raw talent, developing elite athletes, and producing world champions from Africa to the world." />
+  <meta property="og:site_name" content="MBOA Sports" />
+{@html `<script type="application/ld+json">${JSON.stringify(siteSchema)}</script>`}
 </svelte:head>
 
 <!-- ══════════════════ HERO SECTION ══════════════════ -->

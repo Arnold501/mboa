@@ -108,7 +108,7 @@
 </script>
 
 <svelte:head>
-  <title>{hero?.title || 'Programs'} — MBOA Sports</title>
+  <title>{hero?.title || 'Programs'} | MBOA Sports</title>
   <meta name="description" content={hero?.subtitle || 'Elite athlete development, private coaching, gym partnerships, and coaching education programs at MBOA Sports.'} />
 </svelte:head>
 

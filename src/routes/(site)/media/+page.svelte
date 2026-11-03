@@ -49,7 +49,7 @@
 </script>
 
 <svelte:head>
-  <title>{hero?.title || 'Media'} — MBOA Sports</title>
+  <title>{hero?.title || 'Media'} | MBOA Sports</title>
   <meta name="description" content={hero?.subtitle || 'Watch MBOA Sports fight highlights, training camp footage, documentaries, and behind-the-scenes content.'} />
 </svelte:head>
 

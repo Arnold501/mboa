@@ -17,7 +17,7 @@
 </script>
 
 <svelte:head>
-  <title>{event.title} — MBOA Sports</title>
+  <title>{event.title} | MBOA Sports</title>
   <meta name="description" content="{event.title}: {event.subtitle}. {event.venue}, {event.location}. {formatDate(event.date)}." />
 </svelte:head>
 

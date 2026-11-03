@@ -26,7 +26,7 @@
 </script>
 
 <svelte:head>
-  <title>{hero?.title || 'Athletes'} — MBOA Sports</title>
+  <title>{hero?.title || 'Athletes'} | MBOA Sports</title>
   <meta name="description" content={hero?.subtitle || 'Meet the MBOA Sports roster — elite MMA fighters, kickboxers, rising prospects, and world-class coaches.'} />
 </svelte:head>
 

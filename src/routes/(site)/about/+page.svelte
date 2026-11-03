@@ -28,7 +28,7 @@
 </script>
 
 <svelte:head>
-  <title>About MBOA Sports — Our Story</title>
+  <title>About|MBOA Sports</title>
   <meta name="description" content="Learn about MBOA Sports — our vision, mission, philosophy, and the journey from Africa to the world." />
 </svelte:head>
 

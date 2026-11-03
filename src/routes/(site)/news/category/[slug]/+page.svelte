@@ -16,7 +16,7 @@
 </script>
 
 <svelte:head>
-  <title>{data.activeCategoryMeta.title} — MBOA Sports Newsroom</title>
+  <title>{data.activeCategoryMeta.title} | MBOA Sports</title>
   <meta name="description" content={data.activeCategoryMeta.description || `${data.activeCategoryMeta.title} news from MBOA Sports.`} />
 </svelte:head>
 

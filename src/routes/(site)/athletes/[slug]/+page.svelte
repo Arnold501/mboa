@@ -21,7 +21,7 @@
 </script>
 
 <svelte:head>
-  <title>{athlete.name} — MBOA Sports Athlete</title>
+  <title>{athlete.name} | MBOA Sports</title>
   <meta name="description" content="{athlete.seo?.metaDescription || `${athlete.name}, ${athlete.division} fighter. Record: ${athlete.record || 'N/A'}. ${athlete.bio.substring(0, 120)}`}" />
 </svelte:head>
 

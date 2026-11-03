@@ -23,7 +23,7 @@
 </script>
 
 <svelte:head>
-  <title>{hero?.title || 'Store'} — MBOA Sports</title>
+  <title>{hero?.title || 'Store'} | MBOA Sports</title>
   <meta name="description" content={hero?.subtitle || 'Official MBOA Sports merchandise — find it at a store near you.'} />
 </svelte:head>
 

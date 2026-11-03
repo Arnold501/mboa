@@ -33,7 +33,7 @@
 </script>
 
 <svelte:head>
-  <title>{post.seo?.metaTitle || post.title} — MBOA Newsroom</title>
+  <title>{post.seo?.metaTitle || post.title} | MBOA Sports</title>
   <meta name="description" content={post.seo?.metaDescription || post.excerpt} />
   {#if post.seo?.noIndex}<meta name="robots" content="noindex" />{/if}
   <meta property="og:title" content={post.seo?.metaTitle || post.title} />

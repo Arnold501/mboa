@@ -11,7 +11,7 @@
 </script>
 
 <svelte:head>
-  <title>{data.author.name} — MBOA Sports Newsroom</title>
+  <title>{data.author.name} | MBOA Sports</title>
   <meta name="description" content={data.author.bio || `Articles by ${data.author.name} on MBOA Sports.`} />
 </svelte:head>
 

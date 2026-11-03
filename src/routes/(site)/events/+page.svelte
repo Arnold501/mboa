@@ -16,7 +16,7 @@
 </script>
 
 <svelte:head>
-  <title>{hero?.title || 'Events'} — MBOA Sports</title>
+  <title>{hero?.title || 'Events'} | MBOA Sports</title>
   <meta name="description" content={hero?.subtitle || 'Upcoming MBOA Sports events, fight cards, ticket information, and past event results and highlights.'} />
 </svelte:head>
 
